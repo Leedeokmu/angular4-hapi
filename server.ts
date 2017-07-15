@@ -10,16 +10,7 @@ const server: hapi.Server = new hapi.Server();
 server.connection({
   host: 'localhost',
   port: 3000
-  // routes: {
-  //   handler: {
-  //     directory: {
-  //       path: './',
-  //       listing: true
-  //     }
-  //   }
-  // }
 });
-
 
 server.register(inert, (err) => {
   if (err) {
