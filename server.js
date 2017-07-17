@@ -9,14 +9,6 @@ var server = new hapi.Server();
 server.connection({
     host: 'localhost',
     port: 3000
-    // routes: {
-    //   handler: {
-    //     directory: {
-    //       path: './',
-    //       listing: true
-    //     }
-    //   }
-    // }
 });
 server.register(inert, function (err) {
     if (err) {
