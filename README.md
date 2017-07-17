@@ -1,28 +1,48 @@
-# HapiAngular4
+## GYM with Angular4 + Hapijs
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.1.
+## Functions
+Register/ Login/ Admin(reservation, user, purchase)<br>
+Information : introduction, location, trainer(contact us : email)<br>
+Purchase : supplement, clothes(includes gloves, waste protector), shoes<br>
+Reservation(P.T)<br>
+Board : QnA-reply<br>
+Real time communication<br>
+ 
+ ## Environment
+ 
+ Nodejs + Hapijs + Angular 4
+ 
+ ## Folder Structure
+ <pre>src
+ +-app
+ +---admin
+ +-----manage user
+ +-----manage reservation
+ +-----manage purchase
+ +---main
+ +-----information
+ +-----purchase
+ +-----reservation
+ +-----board
+ +-------reply
+ +-----chat
+ +-----authentication(register, login)
+ 
+ server
+ +-app
+ +---admin
+ +-----manage user
+ +-----manage reservation
+ +-----manage purchase
+ +---main
+ +-----information
+ +-----purchase
+ +-----reservation
+ +-----board
+ +-------reply
+ +-----chat
+ +-----authentication(register, login)
+ </pre>
+ 
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ 
