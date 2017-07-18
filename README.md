@@ -44,5 +44,5 @@ Real time communication<br>
  +-----authentication(register, login)
  </pre>
  
-
+reference : https://github.com/dwyl/hapi-typescript-example/blob/master/src/database.ts
  

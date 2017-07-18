@@ -5,8 +5,9 @@
 import * as hapi from 'hapi';
 import * as inert from 'inert';
 import * as path from 'path';
-import * as route from './server/route';
+import * as route from './route';
 const server: hapi.Server = new hapi.Server();
+
 server.connection({
   host: 'localhost',
   port: 3000
