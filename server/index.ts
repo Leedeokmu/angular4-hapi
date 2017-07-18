@@ -12,4 +12,14 @@ process.on('unhandledRejection', (reason: any, p: any) => {
   console.log('Unhandled Rejection at:', p, 'reason:', reason);
 });
 
-const dbConfig = Config.getDa
+const dbConfig = Config.getDatabaseConfig();
+const database = Database.init(dbConfig);
+
+const serverConfig = Config.getServerConfig();
+
+Server.init(serverConfig, database).then((server) => {
+  server.start(() => {
+    console.log('Server running at: ', server.info.uri);
+  });
+})
+
