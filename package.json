@@ -22,16 +22,17 @@
     "@angular/platform-browser-dynamic": "^4.3.0",
     "@angular/router": "^4.3.0",
     "body-parser": "^1.17.2",
-    "boom": "^5.1.0",
+    "boom": "^5.2.0",
     "core-js": "^2.4.1",
     "express": "^4.15.3",
     "hapi": "^16.4.3",
+    "hapi-auth-jwt2": "^7.3.0",
     "inert": "^4.2.0",
     "mongoose": "^4.11.3",
     "nconf": "^0.8.4",
     "path": "^0.12.7",
     "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
+    "zone.js": "^0.8.14"
   },
   "devDependencies": {
     "@angular/cli": "1.2.1",

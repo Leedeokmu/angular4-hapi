@@ -1,15 +1,15 @@
-import * as Server from './server';
-import * as Database from './database';
-import * as Config from './configuration';
+import * as Server from "./server";
+import * as Database from "./database";
+import * as Config from "./configuration";
 
-console.log(`Running on ${process.env.NODE_ENV || 'dev'}`);
+console.log(`Running on ${process.env.NODE_ENV || "dev"}`);
 
-process.on('uncaughtException', (error: Error) => {
-  console.error('UnCaughtException ', error);
+process.on("uncaughtException", (error: Error) => {
+  console.error("UnCaughtException", error);
 });
 
-process.on('unhandledRejection', (reason: any, p: any) => {
-  console.log('Unhandled Rejection at:', p, 'reason:', reason);
+process.on("unhandledRejection", (reason: any, p: any) => {
+  console.log("Unhandled Rejection at:", p, 'reason:', reason);
 });
 
 const dbConfig = Config.getDatabaseConfig();
@@ -19,7 +19,7 @@ const serverConfig = Config.getServerConfig();
 
 Server.init(serverConfig, database).then((server) => {
   server.start(() => {
-    console.log('Server running at: ', server.info.uri);
+    console.log("Server running at: ", server.info.uri);
   });
 })
 

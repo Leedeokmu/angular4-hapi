@@ -2,8 +2,11 @@
  * Created by freefly3557 on 2017-07-14.
  */
 'use strict';
-import * as hapi from 'hapi';
-import * as inert from 'inert';
+import * as hapi from "hapi";
+import * as Boom from "boom";
+
+
+import * as inert from "inert";
 import * as path from 'path';
 import * as route from './route';
 const server: hapi.Server = new hapi.Server();
