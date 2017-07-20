@@ -8,8 +8,8 @@
     "jwtExpiration": "1h",
     "routePrefix": "/",
     "plugins": [
-      "logger",
-      "jwt-auth"
+      "good",
+      "hapi-auth-jwt2"
     ]
   }
 }

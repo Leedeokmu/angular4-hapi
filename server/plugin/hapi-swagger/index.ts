@@ -1,10 +1,10 @@
 import {IPlugin, IPluginInfo} from "../plugin.interface";
 import * as Hapi from "hapi";
 
-export default (): IPlugin => {
+export default(): IPlugin => {
   return {
     register: (server: Hapi.Server): Promise<void> => {
-      return new Promise<void> ((resolve )=> {
+      return new Promise<void> ((resolve ) => {
         server.register([
           require("inert"), require("vision"),
           {
@@ -27,6 +27,8 @@ export default (): IPlugin => {
             if(error) {
               console.log(`Error registering swagger plugin: ${error}`);
             }
+
+            resolve();
           });
         });
       },

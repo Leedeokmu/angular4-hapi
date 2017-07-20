@@ -12,7 +12,7 @@ export interface IPlugin {
   info(): IPluginInfo;
 }
 
-export interface IPluginInfo{
+export interface IPluginInfo {
   name: string;
   version: string;
 }

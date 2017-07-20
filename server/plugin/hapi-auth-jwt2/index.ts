@@ -1,7 +1,7 @@
 import { IPlugin, IPluginOption } from "../plugin.interface";
 import * as Hapi from "hapi";
 
-export default (): IPlugin => {
+export default(): IPlugin => {
   return {
     register: (server: Hapi.Server, option: IPluginOption): Promise<void> => {
       const database = option.database;

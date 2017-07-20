@@ -1,66 +1,51 @@
 /**
  * Created by freefly3557 on 2017-07-14.
  */
-'use strict';
-import * as hapi from "hapi";
+
+"use strict";
+import * as Hapi from "hapi";
 import * as Boom from "boom";
+import {IPlugin, IPluginOption} from "./plugin/plugin.interface";
+import { IServerConfiguration } from "./configuration";
+import { IDatabase } from "./database";
 
+export function init(serverConfig: IServerConfiguration, database: IDatabase): Promise<Hapi.Server> {
+  return new Promise<Hapi.Server>(resolve => {
+    const port = process.env.PORT || serverConfig.port;
+    const server = new Hapi.Server();
 
-import * as inert from "inert";
-import * as path from 'path';
-import * as route from './route';
-const server: hapi.Server = new hapi.Server();
-
-server.connection({
-  host: 'localhost',
-  port: 3000
-});
-
-server.register(inert, (err) => {
-  if (err) {
-    throw err;
-  }
-
-  server.route({
-    method: 'GET',
-    path: '/{param*}',
-    handler: {
-      directory: {
-        path: './dist',
-        listing: false,
-        index: true
+    server.connection({
+      port: port,
+      routes: {
+        cors: true
       }
-    }
-  });
+    });
 
-  server.route({
-    method: 'GET',
-    path: '/index',
-    handler: (requset: hapi.Request, reply: hapi.IReply) => {
-      reply.file(('dist/index.html'));
+    if (serverConfig.routePrefix) {
+      server.realm.modifiers.route.prefix = serverConfig.routePrefix;
     }
-  });
 
-  server.route({
-    method: 'GET',
-    path: '/list',
-    handler: (requset: hapi.Request, reply: hapi.IReply) => {
-      reply('hello world');
-    }
-  });
+    const plugins: Array<string> = serverConfig.plugins;
+    const pluginOptions: IPluginOption = {
+      database: database,
+      serverConfig: serverConfig
+    };
 
-  server.route({
-    method: 'GET',
-    path: '/li',
-    handler: (requset: hapi.Request, reply: hapi.IReply) => {
-      reply('hello');
-    }
-  });
+    let pluginPromises = [];
 
-  server.start( ( err ) => {
-    if (err) {
-      throw err;
-    }
-    console.log('Server running at : ', server.info.uri);
+    plugins.forEach((pluginName: string) => {
+      let plugin: IPlugin = (require("./plugin/" + pluginName)).default();
+      console.log(`Register Plugin ${plugin.info().name} v${plugin.info().version}`);
+      pluginPromises.push(plugin.register(server, pluginOptions));
+    });
+
+    Promise.all(pluginPromises).then(() => {
+      console.log("All plugins registered successfully");
+      console.log("Register Routes");
+
+      console.log("Routes registered sucessfully");
+
+      resolve(server);
+    });
   });
-});
+}
