@@ -29,3 +29,4 @@ export function getDatabaseConfig(): IDatabaseConfiguration{
 export function getServerConfig(): IServerConfiguration{
   return config.get('server');
 }
+

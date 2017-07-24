@@ -8,8 +8,8 @@ process.on("uncaughtException", (error: Error) => {
   console.error("UnCaughtException", error);
 });
 
-process.on("unhandledRejection", (reason: any, p: any) => {
-  console.log("Unhandled Rejection at:", p, 'reason:', reason);
+process.on("unhandledRejection", (reason: any, position: any) => {
+  console.log("Unhandled Rejection at:", position, "reason:", reason);
 });
 
 const dbConfig = Config.getDatabaseConfig();
@@ -21,5 +21,5 @@ Server.init(serverConfig, database).then((server) => {
   server.start(() => {
     console.log("Server running at: ", server.info.uri);
   });
-})
+});
 

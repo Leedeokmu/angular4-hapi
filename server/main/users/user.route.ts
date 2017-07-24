@@ -7,5 +7,4 @@ import construct = Reflect.construct;
 export function Route (server: Hapi, config: IServerConfiguration, database: IDatabase){
   const userController = new UserController();
 
-  }
 }
