@@ -1,0 +1,76 @@
+User{
+  uid
+  email,
+  name,
+  password,
+  createdAt
+  updatedAt
+}
+
+Manager{
+  uid
+  email,
+  name,
+  password,
+  createdAt
+  updatedAt
+}
+
+Product{
+  pid
+  name,
+  category,
+  content,
+  price,
+  mdate,
+  createdAt,
+  updatedAt,
+  img(url)
+}
+
+Board{
+  bid
+  title,
+  content,
+  password,
+  author(user email),
+  addition(url),
+  createdAt,
+  updatedAt
+}
+
+Reply{
+  rid
+  boardId,
+  content,
+  password,
+  author(user email),
+  createdAt,
+  updatedAt
+}
+
+Order{
+  oid,
+  products: [product],
+  price,
+  orderer(user email),
+  orderer_name,
+  phone,
+  postcode,
+  addr,
+  state,
+  createdAt,
+  updatedAt,
+
+  child: product
+}
+
+reserve(PT){
+  rid,
+  reserver(user email),
+  reserve_date_time,
+  trainer(manager),
+  createdAt,
+  updatedAt
+}
+
