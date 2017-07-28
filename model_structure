@@ -8,12 +8,15 @@ User{
 }
 
 Manager{
-  uid
+  mid
   email,
   name,
   password,
+  users: [User]
   createdAt
   updatedAt
+
+  child: User
 }
 
 Product{
@@ -62,13 +65,13 @@ Order{
   createdAt,
   updatedAt,
 
-  child: product
+  child: Product
 }
 
 reserve(PT){
   rid,
   reserver(user email),
-  reserve_date_time,
+  reserve_date,
   trainer(manager),
   createdAt,
   updatedAt
