@@ -10,7 +10,8 @@
     "plugins": [
       "good",
       "hapi-auth-jwt2",
-      "hapi-swagger"
+      "hapi-swagger",
+      "static"
     ]
   }
 }

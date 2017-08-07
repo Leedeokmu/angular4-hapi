@@ -9,7 +9,8 @@
     "routePrefix": "/",
     "plugins": [
       "good",
-      "hapi-auth-jwt2"
+      "hapi-auth-jwt2",
+      "static"
     ]
   }
 }
