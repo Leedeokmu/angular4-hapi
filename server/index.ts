@@ -5,7 +5,7 @@ import * as Config from "./configuration";
 console.log(`Running on ${process.env.NODE_ENV || "dev"}`);
 
 process.on("uncaughtException", (error: Error) => {
-  console.error("UnCaughtException", error);
+  console.log("UnCaughtException", error);
 });
 
 process.on("unhandledRejection", (reason: any, position: any) => {
@@ -13,6 +13,7 @@ process.on("unhandledRejection", (reason: any, position: any) => {
 });
 
 const dbConfig = Config.getDatabaseConfig();
+
 const database = Database.init(dbConfig);
 
 const serverConfig = Config.getServerConfig();

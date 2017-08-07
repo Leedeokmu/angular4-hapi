@@ -14,7 +14,7 @@ export default(): IPlugin => {
             name: "Squeeze",
             args: [{ error: "*", log: "*", repsonse: "*", request: "*"}]
           }, {
-            modulbe: "good-console"
+            module: "good-console"
           }, "stdout"]
         }
       };

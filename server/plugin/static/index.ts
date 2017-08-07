@@ -16,9 +16,11 @@ export default(): IPlugin => {
               method: "GET",
               path: "/{path*}",
               handler: {
-                directory: "./dist",
-                index: true,
-                listing: true
+                directory: {
+                  path: "./dist",
+                  index: true,
+                  listing: true
+                }
               }
             });
             resolve();

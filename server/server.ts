@@ -21,9 +21,9 @@ export function init(serverConfig: IServerConfiguration, database: IDatabase): P
       }
     });
 
-    if (serverConfig.routePrefix) {
-      server.realm.modifiers.route.prefix = serverConfig.routePrefix;
-    }
+    // if (serverConfig.routePrefix) {
+    //   server.realm.modifiers.route.prefix = serverConfig.routePrefix;
+    // }
 
     const plugins: Array<string> = serverConfig.plugins;
     const pluginOptions: IPluginOption = {

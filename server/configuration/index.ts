@@ -1,14 +1,6 @@
-import * as nconf from 'nconf';
-import * as path from 'path';
+import * as Config from "./config.dev";
 
-const config = new nconf.Provider({
-  env: true,
-  argv: true,
-  store: {
-    type: 'file',
-    file: path.join(__dirname, `./config.${process.env.NODE_ENV || 'dev'}.json`)
-  }
-});
+const config = Config.config;
 
 export interface IServerConfiguration{
   port: number;
@@ -23,10 +15,10 @@ export interface IDatabaseConfiguration {
 }
 
 export function getDatabaseConfig(): IDatabaseConfiguration{
-  return config.get('database');
+  return config["database"];
 }
 
 export function getServerConfig(): IServerConfiguration{
-  return config.get('server');
+  return config["server"];
 }
 
