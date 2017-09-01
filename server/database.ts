@@ -1,8 +1,9 @@
 import * as Mongoose from "mongoose";
 import { IDatabaseConfiguration } from "./configuration";
+import { IUser, UserModel } from "./main/users/user";
 
 export interface IDatabase {
-
+  userModel: Mongoose.Model<IUser>;
 }
 
 export function init (config: IDatabaseConfiguration): IDatabase {
@@ -12,7 +13,7 @@ export function init (config: IDatabaseConfiguration): IDatabase {
   let mongoDb = Mongoose.connection;
 
   mongoDb.on("error", () => {
-    console.log(`Unabel to connct to databse: ${config.connectionString}`)
+    console.log(`Unabel to connct to databse: ${config.connectionString}`);
   });
 
   mongoDb.on("open", () => {
@@ -20,7 +21,6 @@ export function init (config: IDatabaseConfiguration): IDatabase {
   });
 
   return {
-
+    userModel: UserModel
   };
 }
-

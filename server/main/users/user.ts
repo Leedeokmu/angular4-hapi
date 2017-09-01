@@ -1,7 +1,7 @@
 import * as Mongoose from "mongoose";
 import * as Bcrypt from "bcryptjs";
 
-export interface IUser extends Mongoose.Document{
+export interface IUser extends Mongoose.Document {
   name: string;
   email: string;
   password: string;
@@ -14,6 +14,7 @@ export const UserScheme = new Mongoose.Schema(
   {
     email: {type: String, unique: true, required: true},
     name: {type: String, required: true},
+    
     password: {type: String, required: true}
   },
   {
@@ -52,4 +53,5 @@ UserScheme.pre("findOneAndUpdate", () => {
   }
   this.findOneAndUpdate({}, {password: password});
 });
+
 export const UserModel = Mongoose.model<IUser>("User", UserScheme);
